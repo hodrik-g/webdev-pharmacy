@@ -3,6 +3,7 @@ import React from 'react';
 import './global.css';
 import './App.css';
 import './Sidebar.css';
+import './Main.css';
 
 function App() {
 	return (
@@ -36,44 +37,28 @@ function App() {
 			</aside>
 			<main>
 				<ul>
-					<li className="medic-item">
+				<li className="medic-item">
 						<header>
-							<h3 className="medic-name">Remédio</h3>
-							<p>Esse remédio tem esse efeito mas é contraindicado para esse tipo de pessoa</p>
-						</header>
-						<div className="item-botbar">
-							<button className="medic-add2cart">Adicionar ao carrinho</button>
-							<p>R$12,00</p>
+							<strong className="medic-name">Remédio</strong>
+							</header>
+						<div className="medic-info">
+							<p>Efeitos:</p>
+							<p>Contraindicações:</p>
 						</div>
-					</li>
-					<li className="medic-item">
-						<header>
-							<h3 className="medic-name">Remédio</h3>
-							<p>Esse remédio tem esse efeito mas é contraindicado para esse tipo de pessoa</p>
-						</header>
-						<div className="item-botbar">
-							<button className="medic-add2cart">Adicionar ao carrinho</button>
-							<p>R$12,00</p>
+						<div className="medic-info">
+							<ul className="medic-effects">
+								<li>isso</li>
+								<li>isso aqui</li>
+								<li>isso outro aqui</li>
+							</ul>
+							<ul className="medic-contraindications">
+								<li>não</li>
+								<li>nãnãninãnão</li>
+							</ul>
 						</div>
-					</li>
-					<li className="medic-item">
-						<header>
-							<h3 className="medic-name">Remédio</h3>
-							<p>Esse remédio tem esse efeito mas é contraindicado para esse tipo de pessoa</p>
-						</header>
-						<div className="item-botbar">
-							<button className="medic-add2cart">Adicionar ao carrinho</button>
-							<p>R$12,00</p>
-						</div>
-					</li>
-					<li className="medic-item">
-						<header>
-							<h3 className="medic-name">Remédio</h3>
-							<p>Esse remédio tem esse efeito mas é contraindicado para esse tipo de pessoa</p>
-						</header>
-						<div className="item-botbar">
-							<button className="medic-add2cart">Adicionar ao carrinho</button>
-							<p>R$12,00</p>
+						<div className="medic-add2cart">
+							<strong>Adicionar ao carrinho</strong>
+							<p className="medic-price">R$12,00</p>
 						</div>
 					</li>
 				</ul>
