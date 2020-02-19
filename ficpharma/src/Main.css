@@ -5,6 +5,7 @@ main {
 main ul {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	max-width: 860px;
 	gap: 20px;
 	list-style: none;
 }
@@ -17,24 +18,44 @@ li.medic-item {
 }
 
 li.medic-item header {
-	display: flex;
-	flex-direction: column;
+	text-align: center;
 	padding: 18px;
 }
 
-li.medic-item header strong {
+li.medic-item header h3 {
 	display: block;
-	color: #FF2451;
+	color: #000;
 }
 
-ul.medic-effects, ul.medic-contraindications {
-	display: relative;
-	grid-template-columns: unset;
-	width: 50%;
+.medic-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 0px 18px 18px;
 }
 
-ul.medic-contraindications {
-	text-align: right;
+.medic-contraindications {
+	margin-top: 18px;
+}
+
+.medic-effects h4, .medic-contraindications h4 {
+	padding: 5px;
+}
+
+.medic-effects ul, .medic-contraindications ul {
+	display: flex;
+	flex-direction: column;
+}
+
+.medic-info div ul li {
+	width: fit-content;
+	padding: 0px 3px;
+	color: #666;
+	transition: color 0.3s;
+}
+
+.medic-info div ul li:hover {
+	color: #FF1228;
 }
 
 .medic-item .medic-add2cart {
@@ -50,7 +71,7 @@ ul.medic-contraindications {
 }
 
 .medic-add2cart:hover {
-	background: #C82451;
+	background: #AF2451;
 }
 
 .medic-add2cart strong {
@@ -68,5 +89,5 @@ ul.medic-contraindications {
 }
 
 .medic-add2cart:hover .medic-price {
-	color: #C82451;
+	color: #AF2451;
 }
