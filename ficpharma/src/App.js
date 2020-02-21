@@ -6,27 +6,43 @@ import './Sidebar.css';
 import './Main.css';
 import './Rightbar.css';
 
+import Item from'./Components/Cart/Item.js';
+
 function App() {
+
+	const medicsPrice = {
+		remedios:{
+			remedio1: {
+				name: 'yasuo',
+				price: 12.0
+			},
+			remedio2: {
+				name: 'morgana',
+				price: 18.0
+			},
+			remedio3: {
+				name: 'aatrox',
+				price: 25.0
+			},
+			remedio4: {
+				name: 'master_Yi',
+				price: 22.0
+			},
+		},
+		carrinho: {
+			remedio2: {
+				name: 'yasuo',
+				price: 12.0,
+			}
+		}
+	};
+
+
 	return (
 		<div id="app">
 			<div className="cart">
 				<h2>Carrinho</h2>
-				<ul>
-					<li>
-						<div className="item-manager">
-							<div className="amount">
-								<button className="increment"><i className="material-icons">keyboard_arrow_up</i></button>
-								<input className="item-amount" name="item-amount"/>
-								<button className="decrement"><i className="material-icons">keyboard_arrow_down</i></button>
-							</div>
-							<h4>Remédio</h4>
-							<button className="delete"><i className="material-icons">clear</i></button>
-						</div>
-						<div className="item-info">
-							<h4>R$12,00</h4>
-						</div>
-					</li>
-				</ul>
+				<Item name="Yasuo" price="11.9"/>
 			</div>
 			<main>
 				<ul>
