@@ -2,7 +2,7 @@ main {
 	flex: 1;
 }
 
-main ul {
+main .search-container {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	max-width: 860px;
@@ -10,19 +10,22 @@ main ul {
 	list-style: none;
 }
 
-li.medic-item {
+div.medic-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	background: #FFF;
 	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	padding: 2px;
 }
 
-li.medic-item header {
+div.medic-item header {
 	text-align: center;
 	padding: 18px;
 }
 
-li.medic-item header h3 {
+div.medic-item header h3 {
 	display: block;
 	color: #000;
 }
@@ -45,6 +48,7 @@ li.medic-item header h3 {
 .medic-effects ul, .medic-contraindications ul {
 	display: flex;
 	flex-direction: column;
+	list-style: none;
 }
 
 .medic-info div ul li {

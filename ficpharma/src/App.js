@@ -7,182 +7,99 @@ import './Main.css';
 import './Rightbar.css';
 
 import Item from'./Components/Cart/Item.js';
+import Medic from './Components/Search/Medic.js';
 
 function App() {
 
-	const medicsPrice = {
-		remedios:{
-			remedio1: {
-				name: 'yasuo',
-				price: 12.0
-			},
-			remedio2: {
-				name: 'morgana',
-				price: 18.0
-			},
-			remedio3: {
-				name: 'aatrox',
-				price: 25.0
-			},
-			remedio4: {
-				name: 'master_Yi',
-				price: 22.0
-			},
+	const medics = {
+		Luftal: {
+			medicName: "Luftal",
+			medicPrice: "15,00",
+			medicEffects: [
+				"Gases",
+				"Desconforto abdominal",
+				"Dor ou cólicas no abdômen",
+			],
+			medicContraindications: [
+				"Dor grave ou persistente",
+				"Massa palpável na região do abdômen",
+				"Suspeita de perfuração ou obstrução intestinal",
+			],
 		},
-		carrinho: {
-			remedio2: {
-				name: 'yasuo',
-				price: 12.0,
-			}
-		}
-	};
+		Reparil: {
+			medicName: "Reparil",
+			medicPrice: "18,00",
+			medicEffects: [
+				"Dores musculares",
+				"Traumatismos leves",
+				"Artrites e tendinites",
+			],
+			medicContraindications: [
+				"Não deve ser aplicado em pele rachada ou nas mucosas",
+				"Não deve ser aplicado em áreas de pele que tenham sido expostas a radioterapia",
+			],
+		},
+		Tylenol: {
+			medicName: "Tylenol",
+			medicPrice: "25,00",
+			medicEffects: [
+				"Dor de cabeça",
+				"Dores musculares",
+				"Dores leves associadas a artrites e cólicas menstruais",
+			],
+			medicContraindications: [
+				"Pessoas alergicas ao paracetamol",
+			],
+		},
 
+	};
 
 	return (
 		<div id="app">
-			<div className="cart">
-				<h2>Carrinho</h2>
-				<Item name="Yasuo" price="11.9"/>
+			<div>
+				<aside>
+					<h2>Cadastre-se</h2>
+					<form>
+						<div className="input-block">
+							<label htmlFor="register-cpf">Seu CPF</label>
+							<input name="register-cpf" id="register-cpf" required/>
+						</div>
+
+						<div className="input-block">
+							<label htmlFor="register-email">Seu e-mail</label>
+							<input name="register-email" id="register-email" required/>
+						</div>
+
+						<div className="input-group">
+							<div className="input-block">
+								<label htmlFor="register-adress">Endereço</label>
+								<input name="register-adress" id="register-adress" required/>
+							</div>
+							<div className="input-block">
+								<label htmlFor="register-complement">Complemento</label>
+								<input name="register-complement" id="register-complement"/>
+							</div>
+						</div>
+
+						<button type="submit">Registrar</button>
+					</form>
+				</aside>
+				<div className="cart">
+					<h2>Carrinho</h2>
+					<Item name="Yasuo" price="11.9"/>
+				</div>
 			</div>
 			<main>
-				<ul>
-					<li className="medic-item">
-						<header>
-							<h2 className="medic-name">Remédio</h2>
-						</header>
-						<div className="medic-info">
-							<div className="medic-effects">
-								<h4>Combate</h4>
-								<ul>
-									<li>Dor de cabeça</li>
-									<li>Inflamação muscular</li>
-									<li>Algum sintoma com nome bem bem bem bem longo</li>
-								</ul>
-							</div>
-							<div className="medic-contraindications">
-								<h4>Contraindicações</h4>
-								<ul>
-									<li>Diabéticos</li>
-									<li>Pneumoultramicroscopicossilicovulcanoconióticos</li>
-									<li>Algum diagnóstico com nome bem bem bem longo</li>
-								</ul>
-							</div>
-						</div>
-						<div className="medic-add2cart">
-							<strong>Adicionar ao carrinho</strong>
-							<p className="medic-price">R$12,00</p>
-						</div>
-					</li>
-					<li className="medic-item">
-						<header>
-							<h2 className="medic-name">Remédio</h2>
-						</header>
-						<div className="medic-info">
-							<div className="medic-effects">
-								<h4>Combate</h4>
-								<ul>
-									<li>Dor de cabeça</li>
-									<li>Inflamação muscular</li>
-									<li>Algum sintoma com nome bem bem bem bem longo</li>
-								</ul>
-							</div>
-							<div className="medic-contraindications">
-								<h4>Contraindicações</h4>
-								<ul>
-									<li>Diabéticos</li>
-									<li>Pneumoultramicroscopicossilicovulcanoconióticos</li>
-									<li>Algum diagnóstico com nome bem bem bem longo</li>
-								</ul>
-							</div>
-						</div>
-						<div className="medic-add2cart">
-							<strong>Adicionar ao carrinho</strong>
-							<p className="medic-price">R$12,00</p>
-						</div>
-					</li>
-					<li className="medic-item">
-						<header>
-							<h2 className="medic-name">Remédio</h2>
-						</header>
-						<div className="medic-info">
-							<div className="medic-effects">
-								<h4>Combate</h4>
-								<ul>
-									<li>Dor de cabeça</li>
-									<li>Inflamação muscular</li>
-									<li>Algum sintoma com nome bem bem bem bem longo</li>
-								</ul>
-							</div>
-							<div className="medic-contraindications">
-								<h4>Contraindicações</h4>
-								<ul>
-									<li>Diabéticos</li>
-									<li>Pneumoultramicroscopicossilicovulcanoconióticos</li>
-									<li>Algum diagnóstico com nome bem bem bem longo</li>
-								</ul>
-							</div>
-						</div>
-						<div className="medic-add2cart">
-							<strong>Adicionar ao carrinho</strong>
-							<p className="medic-price">R$12,00</p>
-						</div>
-					</li>
-					<li className="medic-item">
-						<header>
-							<h2 className="medic-name">Remédio</h2>
-						</header>
-						<div className="medic-info">
-							<div className="medic-effects">
-								<h4>Combate</h4>
-								<ul>
-									<li>Dor de cabeça</li>
-									<li>Inflamação muscular</li>
-									<li>Algum sintoma com nome bem bem bem bem longo</li>
-								</ul>
-							</div>
-							<div className="medic-contraindications">
-								<h4>Contraindicações</h4>
-								<ul>
-									<li>Diabéticos</li>
-									<li>Pneumoultramicroscopicossilicovulcanoconióticos</li>
-									<li>Algum diagnóstico com nome bem bem bem longo</li>
-								</ul>
-							</div>
-						</div>
-						<div className="medic-add2cart">
-							<strong>Adicionar ao carrinho</strong>
-							<p className="medic-price">R$12,00</p>
-						</div>
-					</li>
-				</ul>
+				<div className="search-container">
+					{
+						Object.keys(medics).map(medicKey => {
+							const medic = medics[medicKey];
+
+							return <Medic medicName={medic.medicName} medicPrice={medic.medicPrice} medicEffects={medic.medicEffects} medicContraindications={medic.medicContraindications} />
+						})
+					}
+				</div>
 			</main>
-			<aside>
-				<h2>Cadastre-se</h2>
-				<form>
-					<div className="input-block">
-						<label htmlFor="register-cpf">Seu CPF</label>
-						<input name="register-cpf" id="register-cpf" required/>
-					</div>
-
-					<div className="input-block">
-						<label htmlFor="register-email">Seu e-mail</label>
-						<input name="register-email" id="register-email" required/>
-					</div>
-
-					<div className="input-group">
-						<div className="input-block">
-							<label htmlFor="register-adress">Endereço</label>
-							<input name="register-adress" id="register-adress" required/>
-						</div>
-						<div className="input-block">
-							<label htmlFor="register-complement">Complemento</label>
-							<input name="register-complement" id="register-complement"/>
-						</div>
-					</div>
-
-					<button type="submit">Registrar</button>
-				</form>
-			</aside>
 		</div>
 	);
 }
