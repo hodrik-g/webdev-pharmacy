@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './global.css';
 import './App.css';
@@ -11,10 +11,11 @@ import Medic from './Components/Search/Medic.js';
 
 function App() {
 
+	//Registro dos remédios:
 	const medics = {
 		Luftal: {
 			medicName: "Luftal",
-			medicPrice: "15,00",
+			medicPrice: 7.5,
 			medicEffects: [
 				"Gases",
 				"Desconforto abdominal",
@@ -28,7 +29,7 @@ function App() {
 		},
 		Reparil: {
 			medicName: "Reparil",
-			medicPrice: "18,00",
+			medicPrice: 17.9,
 			medicEffects: [
 				"Dores musculares",
 				"Traumatismos leves",
@@ -41,7 +42,7 @@ function App() {
 		},
 		Tylenol: {
 			medicName: "Tylenol",
-			medicPrice: "25,00",
+			medicPrice: 14.99,
 			medicEffects: [
 				"Dor de cabeça",
 				"Dores musculares",
@@ -51,8 +52,32 @@ function App() {
 				"Pessoas alergicas ao paracetamol",
 			],
 		},
-
 	};
+
+	//Itens do carrinho
+	let [cartItems, setCart] = useState({});
+
+	//Função que adicionará itens ao carrinho
+	function addToCart(medicName, medicPrice) {
+		let newItem = {};
+		newItem[medicName] = {medicName, medicPrice, medicAmount: 1};
+		setCart({ ...cartItems, ...newItem});
+	}
+
+	//Função que removerá itens do carrinho
+	function removeFromCart(medicName) {
+		delete cartItems[medicName];
+		setCart({...cartItems});
+	}
+
+	//Função que altera a quantidade de determinado item no carrinho
+	function changeAmountOfItem(medicName, medicPrice, medicAmount) {
+		if(medicAmount === 0)  return;
+
+		let updatedItem = {};
+		updatedItem[medicName] = {medicName, medicPrice, medicAmount};
+		setCart({...cartItems, ...updatedItem});
+	}
 
 	return (
 		<div id="app">
@@ -86,16 +111,26 @@ function App() {
 				</aside>
 				<div className="cart">
 					<h2>Carrinho</h2>
-					<Item name="Yasuo" price="11.9"/>
+					<div className="cart-list">
+						{
+							Object.keys(cartItems).map(itemKey => {
+								const item = cartItems[itemKey];
+
+								return <Item key={itemKey} item={item} changeAmountOfItem={changeAmountOfItem} removeFromCart={removeFromCart} />
+							})
+						}
+						<Item medicName="medicine" medicPrice={10}/>
+					</div>
 				</div>
 			</div>
 			<main>
 				<div className="search-container">
 					{
 						Object.keys(medics).map(medicKey => {
+
 							const medic = medics[medicKey];
 
-							return <Medic medicName={medic.medicName} medicPrice={medic.medicPrice} medicEffects={medic.medicEffects} medicContraindications={medic.medicContraindications} />
+							return <Medic key={medicKey} medic={medic} addToCart={addToCart} />
 						})
 					}
 				</div>
